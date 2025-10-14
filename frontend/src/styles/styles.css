@@ -1,11 +1,78 @@
-/* nav button */
+/* RESET DASAR */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/* === NAVBAR UTAMA === */
+.navbar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER ATAS (biru penuh) */
+.navbar-header {
+    background-color: #2f73a9;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 25px 70px;
+    gap: 25px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 160px; /* agak tinggi biar proporsional */
+}
+
+.nav-logo {
+    height: 100px; /* lebih besar */
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.nav-logo-text {
+    line-height: 1.3;
+}
+
+.nav-logo-text h1 {
+    margin: 0;
+    color: white;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+/* PANEL MENU KUNING */
+.nav-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4ca42;
+    gap: 0;
+    padding: 6px 0;
+    border-radius: 12px;
+    width: 50%;
+    margin: -20px auto 0 auto; /* 🔽 kurangin nilai negatif biar gak nabrak logo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 120px;
+}
+
+
+/* TOMBOL MENU */
 .nav-button {
-    padding: 8px 16px;
-    font-weight: 500;
+    padding: 10px 22px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #3b3b3b;
+    background: none;
     border: none;
-    background: transparent;
     cursor: pointer;
-    transition: 0.2s;
+    transition: all 0.2s ease;
+    border-radius: 8px;
 }
 
 .nav-button:hover {
@@ -14,40 +81,31 @@
 
 .nav-button.active {
     background-color: #e8aa25;
-    color: black;
+    color: #3b3b3b;
 }
 
-/* nav panel */
-.nav-panel {
-    display: flex;
-    gap: 8px;
-    background-color: #f4ca42;
-    padding: 8px 24px;
-    border-radius: 6px;
-    justify-content: center;
-    width: fit-content;
-}
-
-/* navbar */
-.navbar {
-    background-color: #1a7ac4;
-    height: 140px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 16px;
-}
-
-.navbar-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 16px;
-}
-
-.nav-logo {
-    height: 80px;
-    padding-bottom: 25px;
-    padding-top: 2px;
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+    .navbar-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 30px;
+        height: auto;
+    }
+    .nav-logo {
+        height: 90px;
+        width: auto;
+    }
+    .nav-logo-text h1 {
+        font-size: 18px;
+    }
+    .nav-panel {
+        flex-wrap: wrap;
+        padding: 10px 15px;
+        margin-top: -15px;
+    }
+    .nav-button {
+        font-size: 14px;
+        padding: 8px 14px;
+    }
 }

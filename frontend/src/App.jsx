@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MainLayout from './layout/MainLayout';
+import GalleryPage from './pages/gallery';
+import FacilitiesPage from './pages/facility';
+import ActivitiesPage from './pages/activites/activity';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Router>
+      <MainLayout>
+        <Routes>
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/fasilitas" element={<FacilitiesPage />} />
+          <Route path="/kegiatan" element={<ActivitiesPage />} />
+          <Route path="/" element={
+            <div style={{padding: '40px 20px', textAlign: 'center'}}></div>
+          } />
+          <Route path="/informasi" element={<div style={{padding: '20px'}}>Halaman Informasi - Coming Soon</div>} />
+          <Route path="/ppdb" element={<div style={{padding: '20px'}}>Halaman PPDB - Coming Soon</div>} />
+          <Route path="/pkl" element={<div style={{padding: '20px'}}>Halaman PKL - Coming Soon</div>} />
+          <Route path="/blog" element={<div style={{padding: '20px'}}>Halaman Blog - Coming Soon</div>} />
+          <Route path="/program-keahlian" element={<div style={{padding: '20px'}}>Halaman Program Keahlian - Coming Soon</div>} />
+        </Routes>
+      </MainLayout>
+    </Router>
+  );
 }
 
-export default App
+export default App;
