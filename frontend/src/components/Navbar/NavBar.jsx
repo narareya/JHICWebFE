@@ -1,5 +1,5 @@
 import "../../styles/styles.css";
-import NavPanel from "../NavPanel";
+import NavPanel from "./NavPanel";
 
 import { useState } from "react";
 
