@@ -17,39 +17,69 @@ const FacilitiesPage = () => {
   const facilities = [
     {
       id: 1,
-      image: "/images/vr-room.jpg",
-      title: "Lab Jurusan PPLG",
-      description: "Laboratorium lengkap untuk jurusan Pengembangan Perangkat Lunak dan Gim dengan peralatan modern"
+      image: "/images/galeri/fasilitas/Digidraw.jpeg",
+      title: "Lab Digital Drawing",
+      description: "Lab Animasi"
     },
     {
       id: 2,
-      image: "/images/lab-grafika.jpg",
-      title: "Lab Jurusan Teknik Grafika",
-      description: "Laboratorium khusus untuk jurusan Teknik Grafika dengan peralatan printing dan desain"
+      image: "/images/galeri/fasilitas//DT.jpeg",
+      title: "Digital Thinking",
+      description: "Area santai DKV"
     },
     {
       id: 3,
-      image: "/images/library.jpg",
-      title: "Perpustakaan",
-      description: "Fasilitas belajar dan membaca dengan koleksi buku yang lengkap dan ruang baca yang nyaman"
+      image: "/images/galeri/fasilitas/Grapos.jpeg",
+      title: "Grapos",
+      description: "Lab DKV teknik grafika"
     },
     {
       id: 4,
-      image: "/images/workshop.jpg",
-      title: "Workshop Praktik",
-      description: "Ruang praktik untuk berbagai jurusan dengan peralatan industri standar"
+      image: "/images/galeri/fasilitas/Pacman.jpeg",
+      title: "Lab Pacman",
+      description: "Lab PPLG"
     },
     {
       id: 5,
-      image: "/images/computer-lab.jpg",
-      title: "Laboratorium Komputer",
-      description: "Lab komputer dengan spesifikasi tinggi untuk mendukung pembelajaran teknologi"
+      image: "/images/galeri/fasilitas/Perpus.jpeg",
+      title: "Perpustakan",
+      description: "Area santai"
     },
     {
       id: 6,
-      image: "/images/auditorium.jpg",
-      title: "Aula Serbaguna",
-      description: "Ruang serbaguna untuk berbagai acara dan kegiatan sekolah"
+      image: "/images/galeri/fasilitas/Projek.jpeg",
+      title: "Project",
+      description: "Lab DKV"
+    },
+    {
+      id: 7,
+      image: "/images/galeri/fasilitas/StudioFotografi.jpeg",
+      title: "Studio Fotografi",
+      description: "Lab DKV",
+    },
+    {
+      id: 8,
+      image: "/images/galeri/fasilitas/Tribun.jpeg",
+      title: "Tribun",
+      description: "Area santai PPLG",
+    },
+    {
+      id: 9,
+      image: "/images/galeri/fasilitas/Vespa.jpeg",
+      title: "Vespa",
+      description: "Area santai PPLG",
+    },
+    {
+      id: 10,
+      image: "/images/galeri/fasilitas/VR.jpeg",
+      title: "Lab VR",
+      description: "Lab PPLG",
+    },
+    {
+      id: 11,
+      image: "/images/galeri/fasilitas/Konsep.jpeg",
+      title: "Ruang Konsep",
+      description: "Lab Animasi",
     }
   ];
 

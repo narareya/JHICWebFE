@@ -17,39 +17,57 @@ const ActivitiesPage = () => {
   const activities = [
     {
       id: 1,
-      image: "/images/kartini.jpg",
-      title: "Perayaan Hari Kartini",
-      description: "Siswa-siswi memperingati hari Kartini dengan berbagai kegiatan budaya dan lomba tradisional"
+      image: "/images/galeri/aktifitas/isramiraj.jpeg",
+      title: "Peringatan Isra Mi'raj",
+      description: "Siswa-siswi memperingati Isra Mi'raj dengan penuh khidmat dengan shalawat bersama.",
     },
     {
       id: 2,
-      image: "/images/competition.jpg",
-      title: "Lomba Kompetensi Siswa",
-      description: "Siswa mengikuti berbagai lomba keahlian tingkat nasional dan regional"
+      image: "/images/galeri/aktifitas/kartini.jpeg",
+      title: "Peringatan Hari Kartini",
+      description: "Siswa-siswi mengenakan pakaian adat untuk memperingati Hari Kartini.",
     },
     {
       id: 3,
-      image: "/images/graduation.jpg",
-      title: "Wisuda Siswa",
-      description: "Acara kelulusan siswa kelas XII yang dilaksanakan setiap tahun"
+      image: "/images/galeri/aktifitas/Pameran.jpeg",
+      title: "Pameran Karya Siswa",
+      description: "pameran karya siswa yang menampilkan berbagai hasil kreativitas dan inovasi dari siswa-siswi SMK Raden Umar Said.",
     },
     {
       id: 4,
-      image: "/images/extracurricular.jpg",
-      title: "Kegiatan Ekstrakurikuler",
-      description: "Berbagai kegiatan pengembangan minat bakat siswa"
+      image: "/images/galeri/aktifitas/pelantikan.jpeg",
+      title: "Pelantikan Osis/MPK/Pengurus Ekstrakurikuler",
+      description: "Pelantikan pengurus OSIS, MPK, dan ekstrakurikuler yang baru untuk periode 2024/2025.",
     },
     {
       id: 5,
-      image: "/images/sports.jpg",
-      title: "Kegiatan Olahraga",
-      description: "Berbagai cabang olahraga yang diikuti siswa"
+      image: "/images/galeri/aktifitas/teater.jpeg",
+      title: "Penampilan Teater",
+      description: "Penampilan ekstrakurikuler teater oleh siswa-siswi SMK Raden Umar Said yang menampilkan bakat seni peran dan kreativitas mereka.",
     },
     {
       id: 6,
-      image: "/images/arts.jpg",
-      title: "Kegiatan Seni",
-      description: "Pengembangan bakat seni siswa melalui berbagai kegiatan"
+      image: "/images/galeri/aktifitas/upacara17.jpeg",
+      title: "Upacara 17 Agustus",
+      description: "Upacara bendera memperingati Hari Kemerdekaan Republik Indonesia yang ke-79 di SMK Raden Umar Said.",
+    },
+    {
+      id: 7,
+      image: "/images/galeri/aktifitas/pemilihan.jpeg",
+      title: "Pemilihan Ketua Osis & MPK",
+      description: "Pemilihan Ketua OSIS dan MPK di SMK Raden Umar Said.",
+    },
+    {
+      id: 8,
+      image: "/images/galeri/aktifitas/upacaraguru.jpeg",
+      title: "Upcara Hari Guru",
+      description: "Memperingati Hari Guru Nasional dengan upacara bendera di SMK Raden Umar Said.",
+    },
+    {
+      id: 9,
+      image: "/images/galeri/aktifitas/upacarapramuka.jpeg",
+      title: "Upacra hari pramuka",
+      description: "Memperingati Hari Pramuka dengan upacara bendera di SMK Raden Umar Said.",
     }
   ];
 
