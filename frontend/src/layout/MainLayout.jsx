@@ -1,10 +1,16 @@
-import NavBar from "../components/Navbar/NavBar";
-import "../styles/styles.css";
+import React from 'react';
+import NavBar from '../components/Navbar/NavBar.jsx';
+import './MainLayout.css';
 
-function Main() {
-    return (
-        <NavBar/>
-    )
-}
+const MainLayout = ({ children }) => {
+  return (
+    <div className="layout">
+      <NavBar />
+      <main className="main-content">
+        {children}
+      </main>
+    </div>
+  );
+};
 
-export default Main;
+export default MainLayout;
