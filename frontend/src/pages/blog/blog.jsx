@@ -15,7 +15,7 @@ const BlogPage = () => {
     },
     {
       id: 2,
-      image: "/src/images/kartini.webp",
+      image: "/src/assets/images/kartini.webp",
       title:
         "Semangat Kartini di SMK Raden Umar Said Meriahkan Hari Kartini dengan Kreativitas dan Budaya",
       description:
@@ -25,7 +25,7 @@ const BlogPage = () => {
     },
     {
       id: 3,
-      image: "/src/images/pemilu.webp",
+      image: "/src/assets/images/pemilu.webp",
       title:
         "Pemilihan Ketua OSIS dan MPK 2025/2026",
       description:
@@ -36,7 +36,7 @@ const BlogPage = () => {
     
     { 
       id: 4,
-      image: "/src/images/hut.webp",
+      image: "/src/assets/images/hut.webp",
       title:
         "Kemeriahan Event HUT RI 80 di SMK Raden Umar Said",
       description:
@@ -44,9 +44,10 @@ const BlogPage = () => {
       date: "28 April 2025",
       featured: false,
     },
+    
     { 
       id: 4,
-      image: "/src/images/hut.webp",
+      image: "/src/images/assets/hut.webp",
       title:
         "Kemeriahan Event HUT RI 80 di SMK Raden Umar Said",
       description:
