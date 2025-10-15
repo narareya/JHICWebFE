@@ -1,0 +1,284 @@
+.informasi-biaya-page {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 95vh;
+}
+
+.info-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.info-tab {
+  padding: 10px 25px;
+  border: none;
+  background-color: #e0e0e0;
+  color: #666;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 80px;
+}
+
+.info-tab:hover {
+  background-color: #d0d0d0;
+}
+
+.info-tab.active {
+  background-color: #f4ca42;
+  color: #333;
+}
+
+.info-content {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  min-height: 70vh;
+}
+
+.info-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding-bottom: 20px;
+}
+
+.info-header h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin: 5px 0;
+  font-weight: 600;
+}
+
+.info-header h2.highlight {
+  color: #e74c3c;
+  font-weight: 700;
+}
+
+.info-header p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 20px 0;
+  text-align: justify;
+}
+
+.colored-text {
+  color: #3498db;
+  font-weight: 600;
+}
+
+.info-header ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  text-align: left;
+  display: inline-block;
+}
+
+.info-header li {
+  color: #333;
+  margin: 8px 0;
+  font-weight: 500;
+}
+
+.info-images {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.info-image-large {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.info-image-large img {
+  width: 100%;
+  max-width: 700px;
+  height: 400px;
+  object-fit: contain;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-image-large img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.info-image-large p {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.info-images-small {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.info-image-small {
+  text-align: center;
+  flex: 1;
+  max-width: 350px;
+  margin-bottom: 20px;
+}
+
+.info-image-small img {
+  width: 100%;
+  height: 280px;
+  object-fit: contain;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-image-small img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.info-image-small p {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .informasi-biaya-page {
+    padding: 40px 15px;
+  }
+  
+  .info-tabs {
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+  
+  .info-tab {
+    padding: 8px 18px;
+    font-size: 13px;
+    min-width: 70px;
+  }
+  
+  .info-content {
+    padding: 20px;
+  }
+  
+  .info-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .info-header p {
+    font-size: 0.9rem;
+  }
+  
+  .info-images-small {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .info-image-small {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .informasi-biaya-page {
+    padding: 20px 10px;
+  }
+  
+  .info-tabs {
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  
+  .info-tab {
+    padding: 6px 15px;
+    font-size: 12px;
+    min-width: 60px;
+  }
+  
+  .info-content {
+    padding: 15px;
+  }
+  
+  .info-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .info-header p {
+    font-size: 0.85rem;
+  }
+  
+  .info-image-large img {
+    height: 350px;
+  }
+  
+  .info-image-small img {
+    height: 200px;
+  }
+}
+
+/* Modal/Lightbox Styles */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 95%;
+  max-height: 95%;
+  cursor: default;
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.close-button {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  z-index: 1001;
+}
+
+.close-button:hover {
+  color: #f4ca42;
+}
