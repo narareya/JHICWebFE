@@ -6,7 +6,7 @@ const BlogPage = () => {
   const blogs = [
     {
       id: 1,
-      image: "/images/halalbihalal.jpg",
+      image: "/src/images/halalBihalaal.jpeg",
       title: "Halal Bihalal Pererat Silaturahmi Ciptakan Harmoni di SMK Raden Umar Said",
       description:
         "Kudus – Rabu, 9 April 2025, SMK Raden Umar Said Kudus mengadakan kegiatan halal bihalal sebagai bentuk rasa syukur dan...",
@@ -15,7 +15,7 @@ const BlogPage = () => {
     },
     {
       id: 2,
-      image: "/images/kartini.jpg",
+      image: "/src/images/halalBihalal1.jpg",
       title:
         "Semangat Kartini di SMK Raden Umar Said Meriahkan Hari Kartini dengan Kreativitas dan Budaya",
       description:
@@ -25,7 +25,7 @@ const BlogPage = () => {
     },
     {
       id: 3,
-      image: "/images/kartini.jpg",
+      image: "/src/images/halalBihalaal.jpeg",
       title:
         "Semangat Kartini di SMK Raden Umar Said Meriahkan Hari Kartini dengan Kreativitas dan Budaya",
       description:
@@ -33,7 +33,8 @@ const BlogPage = () => {
       date: "28 April 2025",
       featured: false,
     },
-    {
+    
+    { 
       id: 4,
       image: "/images/kartini.jpg",
       title:
