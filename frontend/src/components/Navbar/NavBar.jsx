@@ -23,7 +23,12 @@ function NavBar() {
     // Update active state berdasarkan current route
     useEffect(() => {
         const currentRoute = location.pathname;
-        const currentNav = Object.keys(navRoutes).find(key => navRoutes[key] === currentRoute);
+
+        const currentNav = Object.keys(navRoutes).find(key => {
+            const route = navRoutes[key];
+            return currentRoute === route || currentRoute.startsWith(`${route}/`)
+        });
+        
         if (currentNav) {
             setActive(currentNav);
         }

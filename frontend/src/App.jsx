@@ -1,10 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from './layout/MainLayout';
 import GalleryPage from './pages/gallery';
 import FacilitiesPage from './pages/facility';
 import ActivitiesPage from './pages/activites/activity';
 import BlogPage from './pages/blog/blog';
+import ProgramKeahlianPage from './pages/ProgramKeahlian';
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
           <Route path="/ppdb" element={<div style={{padding: '20px'}}>Halaman PPDB - Coming Soon</div>} />
           <Route path="/pkl" element={<div style={{padding: '20px'}}>Halaman PKL - Coming Soon</div>} />
           <Route path="/blog" element={<BlogPage/>} />
-          <Route path="/program-keahlian" element={<div style={{padding: '20px'}}>Halaman Program Keahlian - Coming Soon</div>} />
+          <Route path="/program-keahlian" element={<Navigate to="/program-keahlian/Animasi%203D" replace />} />
+          <Route path="/program-keahlian/:namaJurusan" element={<ProgramKeahlianPage/>}/>
         </Routes>
       </MainLayout>
     </Router>
