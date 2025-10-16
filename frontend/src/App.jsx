@@ -1,11 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from './layout/MainLayout';
 import Homepage from './pages/homepage';
 import GalleryPage from './pages/gallery';
 import FacilitiesPage from './pages/gallery/facility';
 import ActivitiesPage from './pages/gallery/activites/activity';
 import BlogPage from './pages/blog/blog';
+import ProgramKeahlianPage from './pages/ProgramKeahlian';
 import InformasiBiayaPage from './pages/informasi/biaya';
 import KosPage from './pages/informasi/kos';
 import KaldikPage from './pages/informasi/kaldik';
@@ -30,7 +31,8 @@ function App() {
           <Route path="/ppdb" element={<PPDBPage/>} />
           <Route path="/pkl" element={<PKLPage />} />
           <Route path="/blog" element={<BlogPage/>} />
-          <Route path="/program-keahlian" element={<div style={{padding: '20px'}}>Halaman Program Keahlian - Coming Soon</div>} />
+          <Route path="/program-keahlian" element={<Navigate to="/program-keahlian/Animasi%203D" replace />} />
+          <Route path="/program-keahlian/:namaJurusan" element={<ProgramKeahlianPage/>}/>
           <Route path="/ppdb/pendaftaran/pendaftaran" element={<PendaftaranPage />} />
           <Route path="/ppdb/login/login" element={<LoginPage />} />
         </Routes>

@@ -1,0 +1,51 @@
+.slider-image-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .slider-bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 150%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 5s ease, filter 1s ease;
+  }
+  
+  .slider-bg .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+  }
+  
+  .slider-title {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+.swiper-slide-active .slider-bg {
+  transform: scale(1.5);
+  filter: blur(0);
+}
+
+.swiper-slide:not(.swiper-slide-active) .slider-bg {
+  transform: scale(1);
+  filter: blur(4px) brightness(0.7);
+}
+
+.swiper-slide-active .slider-title {
+  opacity: 1;
+  transform: translateY(0);
+}
