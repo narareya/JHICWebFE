@@ -1,0 +1,79 @@
+.btn {
+  font-weight: 700;
+  font-size: 2rem;
+  padding: 12px 28px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  display: inline-block;
+  width: 50rem;
+  height: 5rem;
+}
+
+/* 🌟 Versi utama — biru dengan garis kuning */
+.btn.primary {
+  background-color: #1e3a8a; /* biru tua */
+  border: 2px solid #facc15; /* kuning */
+  color: #ffffff; /* teks kuning */
+}
+
+/* efek hover: lebih terang dan glowing */
+.btn.primary:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 0 12px rgba(250, 204, 21, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Versi sekunder (opsional, bisa buat tombol lain nanti) */
+.btn.secondary {
+  background-color: transparent;
+  border: 2px solid #1e3a8a;
+  color: #1e3a8a;
+}
+
+.btn.secondary:hover {
+  background-color: #1e3a8a;
+  color: white;
+}
+
+.btn {
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 12px 28px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  display: inline-block;
+}
+
+.btn.full-width {
+  width: 100%;
+}
+
+/* 🌟 Versi utama — biru dengan garis kuning */
+.btn.primary {
+  background-color: #1e3a8a; /* biru tua */
+  border: 2px solid #facc15; /* kuning */
+  color: #ffffff;
+}
+
+/* efek hover: lebih terang dan glowing */
+.btn.primary:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 0 12px rgba(250, 204, 21, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Versi sekunder (misal untuk login) */
+.btn.secondary {
+  background-color: transparent;
+  border: 2px solid #1e3a8a;
+  color: #1e3a8a;
+}
+
+.btn.secondary:hover {
+  background-color: #1e3a8a;
+  color: white;
+}
