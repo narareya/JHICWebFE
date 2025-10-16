@@ -8,6 +8,7 @@ import BlogPage from './pages/blog/blog';
 import InformasiBiayaPage from './pages/informasi/biaya';
 import KosPage from './pages/informasi/kos';
 import KaldikPage from './pages/informasi/kaldik';
+import PKLPage from './pages/pkl';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
           <Route path="/informasi/kos" element={<KosPage />} />
           <Route path="/informasi/kaldik" element={<KaldikPage />} />
           <Route path="/ppdb" element={<div style={{padding: '20px'}}>Halaman PPDB - Coming Soon</div>} />
-          <Route path="/pkl" element={<div style={{padding: '20px'}}>Halaman PKL - Coming Soon</div>} />
+          <Route path="/pkl" element={<PKLPage />} />
           <Route path="/blog" element={<BlogPage/>} />
           <Route path="/program-keahlian" element={<div style={{padding: '20px'}}>Halaman Program Keahlian - Coming Soon</div>} />
         </Routes>
