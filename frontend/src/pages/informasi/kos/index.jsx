@@ -1,0 +1,336 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import CardKos from '../../../components/card-kos';
+import './style.css';
+
+const KosPage = () => {
+  const [activeTab, setActiveTab] = useState('kos');
+  const navigate = useNavigate();
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+    switch(tab) {
+      case 'kos':
+        navigate('/informasi/kos');
+        break;
+      case 'kaldik':
+        navigate('/informasi/kaldik');
+        break;
+      case 'biaya':
+        navigate('/informasi/biaya');
+        break;
+    }
+  };
+
+  // Data kos - bisa dipindah ke file terpisah atau API
+  const kosData = [
+  {
+    id: 1,
+    nama: "Andi Kost",
+    tipe: "Putra & Putri",
+    nomor: "085728572456",
+    alamat: "Besito RT 02/05",
+    googleMaps: "https://maps.app.goo.gl/RFSstc4KHreSCDwq7",
+    drive: "https://drive.google.com/open?id=1GEZ2t6eC0J1MBGIx3KBwpXwugukO4xcs",
+    fasilitas: ["WiFi", "Air", "Listrik", "Kipas Angin", "Dapur Umum", "Kulkas", "Laundry", "Catering", "Sepeda Bersama"],
+    harga: "Rp 400.000 (KM luar) - Rp 600.000 (KM dalam) / bulan"
+  },
+  {
+    id: 2,
+    nama: "BCOST",
+    tipe: "Campur",
+    nomor: "085727504044",
+    alamat: "Besito Dukuh Tasgading RT 4 RW 5, Gang 6",
+    googleMaps: "https://maps.app.goo.gl/uWT3ojkCLmGTfmv89",
+    drive: "",
+    fasilitas: ["AC", "Springbed", "Meja Belajar", "Almari", "WiFi", "Laundry", "Dapur", "Kulkas", "Dispenser", "Parkiran Luas"],
+    harga: "Rp 1.400.000/bulan atau Rp 15.300.000/tahun"
+  },
+  {
+    id: 3,
+    nama: "Goku Kost",
+    tipe: "Campur",
+    nomor: "",
+    alamat: "Besito RT 03 RW 05, Gang 6 Tasgading",
+    googleMaps: "",
+    drive: "https://drive.google.com/open?id=1RXCuWDW1ExmrIaV5huaUIN8l2bh10Ln9",
+    fasilitas: [],
+    harga: "Rp 600.000/bulan"
+  },
+  {
+    id: 4,
+    nama: "Karunia Kost",
+    tipe: "Campur",
+    nomor: "",
+    alamat: "Besito RT 07/07",
+    googleMaps: "",
+    drive: "",
+    fasilitas: [],
+    harga: "Rp 650.000 - Rp 750.000/bulan"
+  },
+  {
+    id: 5,
+    nama: "Kos Bu Surati",
+    tipe: "Campur",
+    nomor: "089695262685",
+    alamat: "Besito Gang 7 RT 1 RW 8, Gebog Kudus",
+    googleMaps: "",
+    drive: "https://drive.google.com/open?id=1iJ5jE4CodgpTD7C4weWV3cQm94yKbbj8",
+    fasilitas: ["WiFi", "Kipas Angin", "Tempat Tidur", "Bantal", "Lemari", "Dapur Umum", "Ruang Keluarga"],
+    harga: "Rp 500.000 - Rp 700.000/bulan"
+  },
+  {
+    id: 6,
+    nama: "Kos Pak Guru",
+    tipe: "Putra",
+    nomor: "082332546294",
+    alamat: "Besito RT/RW 01/6, Gebog Kudus",
+    googleMaps: "",
+    drive: "https://drive.google.com/open?id=13zef7jHfohKtng8fHMsdi2z4L9qjS7Gs",
+    fasilitas: ["Kipas Angin", "Springbed", "Bantal", "Lemari", "Listrik", "WiFi"],
+    harga: "Rp 300.000/bulan"
+  },
+  {
+    id: 7,
+    nama: "Kos Puteri Tentrem Bu Rokhis (Princess)",
+    tipe: "Putri",
+    nomor: "",
+    alamat: "Besito GG.12 No.28, RT 5 RW 7, Gebog Kudus",
+    googleMaps: "https://g.co/kgs/SuyqPE",
+    drive: "https://drive.google.com/open?id=118XrTnxVINBQpHCOHE9Jv6MP1PFuOava",
+    fasilitas: [],
+    harga: "Rp 750.000 - Rp 1.200.000/bulan"
+  },
+  {
+    id: 8,
+    nama: "Kos UNYIL",
+    tipe: "Campur",
+    nomor: "081325365678",
+    alamat: "Besito Gang 10, Belakang RUS",
+    googleMaps: "",
+    drive: "https://drive.google.com/open?id=1tPlZyPtEuQYLsaj2OFW9Q-G7I6y4jQj2",
+    fasilitas: ["Kasur", "Almari", "WiFi", "Dapur Umum"],
+    harga: "Rp 650.000/bulan"
+  },
+  {
+    id: 9,
+    nama: "Kost Arjuna",
+    tipe: "Campur",
+    nomor: "085282828582",
+    alamat: "Besito RT 1 RW 7",
+    googleMaps: "",
+    drive: "",
+    fasilitas: ["Kasur", "Bantal", "Kamar Mandi Dalam", "WiFi", "Air", "Listrik", "Dapur Bersama", "Parkir", "CCTV"],
+    harga: "Rp 650.000/bulan"
+  },
+  {
+    id: 10,
+    nama: "Kost Besito Second Home",
+    tipe: "Campur",
+    nomor: "085759131069",
+    alamat: "Besito RT 3 RW 1, Gang 2, Gebog Kudus",
+    googleMaps: "",
+    drive: "https://drive.google.com/open?id=1_646CtZDsPZYWO-aGju5cu49KRX_cWOE",
+    fasilitas: ["Kamar Mandi Dalam", "AC (opsional)", "Parkir", "Kasur", "Lemari", "Keamanan"],
+    harga: "Rp 650.000 - Rp 1.000.000/bulan"
+  },
+  {
+    id: 11,
+    nama: "Kost Bu Diah (Nawaindah)",
+    tipe: "Campur",
+    nomor: "089693060249",
+    alamat: "Besito RT 06 RW 07, Gebog Kudus",
+    googleMaps: "",
+    drive: "https://drive.google.com/open?id=1PVtdF1x2v9fP8qh3Pu6mTsXuwsUZF6WE",
+    fasilitas: [],
+    harga: "Rp 600.000/bulan"
+  },
+  {
+    id: 12,
+    nama: "Kost Mutiara Bunda (Pasoa)",
+    tipe: "Putri",
+    nomor: "085727140776",
+    alamat: "Besito Gg. 11 RT 07 RW 07, Gebog Kudus",
+    googleMaps: "https://maps.app.goo.gl/jUVTwaqXoU4iupbV6",
+    drive: "https://drive.google.com/open?id=192cDMPJH7MO4N4kj3L-CxQwskwc44dko",
+    fasilitas: ["Kamar Mandi Dalam", "Kasur", "Meja & Kursi Belajar", "AC/Kipas", "Kulkas Bersama", "Dapur Bersama", "CCTV", "WiFi", "Listrik Gratis", "Laundry"],
+    harga: "Rp 800.000/bulan"
+  },
+  {
+    id: 13,
+    nama: "Kost Nang Matt",
+    tipe: "Campur",
+    nomor: "085883222639",
+    alamat: "Besito Gang 10 No.11, Gebog Kudus",
+    googleMaps: "",
+    drive: "",
+    fasilitas: ["Kamar Mandi Dalam", "Kasur", "Bantal", "Dapur Bersama"],
+    harga: "Rp 700.000/bulan atau Rp 150.000/hari"
+  },
+  {
+    id: 14,
+    nama: "Kost Putra Pororo (Bp. Subadi)",
+    tipe: "Putra",
+    nomor: "085730144455 / 089516383791 / 081390544288",
+    alamat: "Besito RT 01/05, Gang 5 Depan Bank BRI",
+    googleMaps: "",
+    drive: "https://drive.google.com/open?id=1k7BP4rp9OXWGYwgIs48sInBPqLOsFdvN",
+    fasilitas: ["Ruang Tamu", "Kamar Mandi Dalam/Luar", "AC/Kipas", "Springbed", "Almari", "Meja Belajar", "WiFi", "Dapur", "Dispenser", "TV"],
+    harga: "Rp 550.000 - Rp 1.200.000/bulan"
+  },
+  {
+    id: 15,
+    nama: "Kost Putra Permata Bunda 01",
+    tipe: "Putra",
+    nomor: "",
+    alamat: "Desa Besito, Gang 11 RT 7 RW 7, Gebog Kudus",
+    googleMaps: "https://g.co/kgs/vkRGTd",
+    drive: "https://drive.google.com/open?id=1TqcMsUBtVVbkgaH6OZbqkMk0kBKrDgj4",
+    fasilitas: ["AC", "Bersih Setiap Minggu"],
+    harga: "Rp 1.100.000/bulan"
+  },
+  {
+    id: 16,
+    nama: "Kost Putra Trista",
+    tipe: "Putra",
+    nomor: "081326499078 / 082133107007",
+    alamat: "Besito RT 01 RW 06, Gebog Kudus",
+    googleMaps: "https://maps.app.goo.gl/YmCnn2GP8dg9aSzi8?g_st=ic",
+    drive: "https://drive.google.com/open?id=1RPqQKeYr6U-zkvopE5F524nmR2EEXqYn",
+    fasilitas: ["AC/Kipas", "Lemari", "Kamar Mandi Pribadi", "Dapur", "CCTV 24 Jam", "WiFi"],
+    harga: "Rp 500.000 - Rp 1.400.000/bulan"
+  },
+  {
+    id: 17,
+    nama: "Kost Putri Mahakartika",
+    tipe: "Putri",
+    nomor: "082298925121",
+    alamat: "Besito RT 06 RW 07",
+    googleMaps: "https://maps.app.goo.gl/jhFuDAR9ttYBaJrd6",
+    drive: "https://drive.google.com/open?id=16GMkBP_Kc675_FrPZnRCvynEDgp578oM",
+    fasilitas: ["Kamar Mandi Dalam", "Dapur Umum", "Parkir Luas", "CCTV", "WiFi", "Listrik", "Air"],
+    harga: "Rp 800.000 - Rp 1.200.000/bulan"
+  },
+  {
+    id: 18,
+    nama: "Kost Ti",
+    tipe: "Campur",
+    nomor: "089666622586",
+    alamat: "Besito RT 4 RW 5, Gang 6, Gebog Kudus",
+    googleMaps: "",
+    drive: "",
+    fasilitas: ["Kamar Mandi Dalam", "Kipas/AC", "Dapur Bersama", "WiFi"],
+    harga: "Rp 750.000/bulan"
+  },
+  {
+    id: 19,
+    nama: "Pondok Alfatih",
+    tipe: "Putra",
+    nomor: "081339576076",
+    alamat: "Besito Gg.11, Gebog Kudus",
+    googleMaps: "https://goo.gl/maps/xcxXAZPpf193SAYM6",
+    drive: "https://drive.google.com/open?id=1ilSsqEmxC66RpaQySMAER_u6SI3WjF6C",
+    fasilitas: ["Tempat Tidur", "Lemari", "Air", "Kipas"],
+    harga: "Rp 300.000/bulan"
+  },
+  {
+    id: 20,
+    nama: "Pride of Wina",
+    tipe: "Campur",
+    nomor: "",
+    alamat: "Besito Kauman RT 3/3 No.68, Gebog Kudus",
+    googleMaps: "https://maps.app.goo.gl/v5Uc4jBFFH1ZAh566?g_st=ic",
+    drive: "https://drive.google.com/open?id=1PQ1_eElKYpbAmDr20vEkuClJtidAxcQO",
+    fasilitas: [],
+    harga: "Rp 1.000.000 - Rp 1.800.000/bulan"
+  },
+  {
+    id: 21,
+    nama: "Kost Reftalia & Laundry",
+    tipe: "Campur",
+    nomor: "085210940303",
+    alamat: "Jl. Raya Besito No.78, Selatan Balai Desa Besito",
+    googleMaps: "https://maps.app.goo.gl/YmhnBnrYGc9Qtcwe9",
+    drive: "https://drive.google.com/open?id=1Uxc8dV8atw-3__nCy46OG2g-pNNhauta",
+    fasilitas: ["Kamar Mandi Dalam/Luar", "Dapur Umum", "Kasur", "Meja Belajar", "Spring Bed", "WiFi"],
+    harga: "Rp 1.200.000/bulan"
+  },
+  {
+    id: 22,
+    nama: "Rumah Kost Putra",
+    tipe: "Putra",
+    nomor: "",
+    alamat: "Jl. Besito - Gebog Gg.10, Wetan Kali, Gebog Kudus",
+    googleMaps: "https://maps.app.goo.gl/QygHHcFiVVA8qGcw8",
+    drive: "https://drive.google.com/open?id=1B7GVKWb61Xfwwi-yLuc5GhsIvo0AUDxa",
+    fasilitas: [],
+    harga: "Rp 600.000/bulan"
+  },
+  {
+    id: 23,
+    nama: "Spiderman Kost",
+    tipe: "Campur",
+    nomor: "081225751585",
+    alamat: "Depan Balai Desa Besito RT 4/5, Gebog Kudus",
+    googleMaps: "",
+    drive: "",
+    fasilitas: ["Kasur", "Kipas Angin", "Lemari", "Dispenser", "WiFi", "Listrik"],
+    harga: "Rp 650.000 - Rp 1.100.000/bulan"
+  },
+  {
+    id: 24,
+    nama: "Vision Kost",
+    tipe: "Campur",
+    nomor: "",
+    alamat: "Jl. Raya Besito No.2, Depan Balai Desa Besito",
+    googleMaps: "https://s.id/VisionKos",
+    drive: "https://drive.google.com/open?id=1mb5cAjpSNvDem4EXkCVfjWZrmXij1wpu",
+    fasilitas: [],
+    harga: "Mulai Rp 500.000/bulan"
+  },
+  {
+    id: 25,
+    nama: "Kost Putri Bu Ima",
+    tipe: "Putri",
+    nomor: "085642609869",
+    alamat: "Besito Gang 10 RT 1/7 No.36, Gebog Kudus",
+    googleMaps: "https://maps.app.goo.gl/hRbHNXBaVKJLqq4i9?g_st=aw",
+    drive: "https://drive.google.com/drive/folders/1a9Pc0TAQkMKXXtN1fr-PUJvQ5EyDdXqWZitGMbjYRQFJM0McBas0EMtfXj01w20RGq4ahlJS",
+    fasilitas: ["Air", "Listrik", "WiFi", "Dapur Umum", "Kulkas", "Magic Com"],
+    harga: "Rp 650.000/bulan"
+  }
+  ];
+
+  return (
+    <div className="kos-page">
+      <div className="info-tabs">
+        <button 
+          className={`info-tab ${activeTab === 'kos' ? 'active' : ''}`}
+          onClick={() => handleTabClick('kos')}
+        >
+          KOS
+        </button>
+        <button 
+          className={`info-tab ${activeTab === 'kaldik' ? 'active' : ''}`}
+          onClick={() => handleTabClick('kaldik')}
+        >
+          Kaldik
+        </button>
+        <button 
+          className={`info-tab ${activeTab === 'biaya' ? 'active' : ''}`}
+          onClick={() => handleTabClick('biaya')}
+        >
+          Biaya
+        </button>
+      </div>
+
+      <div className="kos-content">
+        <div className="kos-dropdown-section">
+          <CardKos kosData={kosData} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default KosPage;

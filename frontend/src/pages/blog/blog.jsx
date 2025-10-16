@@ -76,6 +76,27 @@ const BlogPage = () => {
   </div>
 </div>
 
+        <div className="carousel-container">
+        <h2 className="carousel-title">Berita Terbaru</h2>
+        <div className="carousel-scroll">
+          {others.map((item) => (
+            <div key={item.id} className="carousel-card">
+              <div className="blog-card">
+                <img src={item.image} alt={item.title} />
+                <div className="blog-content">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  <div className="blog-date">
+                    <CalendarDays size={14} />
+                    <span>{item.date}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
 
       <div className="blog-grid">
         {others.map((item) => (
