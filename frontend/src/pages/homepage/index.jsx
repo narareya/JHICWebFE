@@ -2,12 +2,15 @@ import React from 'react';
 import Carousel from '../../components/carousel';
 import PartnerGrid from '../../components/partner-grid';
 import './style.css';
+import { useNavigate } from 'react-router-dom';
 
 const Homepage = () => {
+  const navigate = useNavigate();
+  
   const carouselImages = [
-    { src: '/images/dalamkota.jpeg', alt: 'Kegiatan Dalam Kota' },
-    { src: '/images/luarkota.jpeg', alt: 'Kegiatan Luar Kota' },
-    { src: '/images/kaldik.jpeg', alt: 'Kalender Pendidikan' }
+    { src: '../images/galeri/aktifitas/kartini.jpeg', alt: 'Kegiatan Dalam Kota', link: '/blog' },
+    { src: '../images/galeri/aktifitas/isramiraj.jpeg', alt: 'Kegiatan Luar Kota', link: '/blog' },
+    { src: '../images/galeri/aktifitas/teater.jpeg', alt: 'Kalender Pendidikan', link: '/blog' }
   ];
 
   const partners = [
@@ -29,7 +32,8 @@ const Homepage = () => {
           <div className="hero-text">
             <h1>AYO BERMAIN DAN BELAJAR<br />SESUAI HOBI!</h1>
             <p>Bergabunglah dengan kami untuk mengembangkan bakat dan minat Anda</p>
-            <button className="cta-button">Daftar Sekarang</button>
+            <button className="cta-button" onClick={() => navigate("/ppdb")}
+            >Daftar Sekarag</button>
           </div>
 
         </div>
@@ -68,7 +72,7 @@ const Homepage = () => {
       </section>
 
       {/* Carousel Section */}
-      <Carousel 
+      <Carousel
         images={carouselImages}
         autoSlide={true}
         interval={4000}

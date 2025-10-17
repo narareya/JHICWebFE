@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
+import { useNavigate } from 'react-router-dom'; // <--- Tambah ini
 
 const Carousel = ({ 
   images, 
@@ -10,6 +11,7 @@ const Carousel = ({
   className = ""
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const navigate = useNavigate(); // <--- untuk pindah halaman
 
   useEffect(() => {
     if (!autoSlide || images.length <= 1) return;
@@ -25,6 +27,10 @@ const Carousel = ({
     setCurrentSlide(index);
   };
 
+  const handleImageClick = (link) => {
+    if (link) navigate(link);
+  };
+
   if (!images || images.length === 0) {
     return <div className="carousel-empty">No images to display</div>;
   }
@@ -36,6 +42,8 @@ const Carousel = ({
           <div 
             key={index}
             className={`carousel-item ${index === currentSlide ? 'active' : ''}`}
+            onClick={() => handleImageClick(image.link)} // <--- klik pindah halaman
+            style={{ cursor: image.link ? 'pointer' : 'default' }} // ubah cursor
           >
             <img 
               src={image.src || image} 
@@ -46,7 +54,6 @@ const Carousel = ({
         ))}
       </div>
       
-      {/* Indicators */}
       {showIndicators && images.length > 1 && (
         <div className="carousel-indicators">
           {images.map((_, index) => (
