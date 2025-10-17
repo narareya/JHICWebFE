@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
+import { useNavigate } from 'react-router-dom'; // <--- Tambah ini
 
 const Carousel = ({ 
   images, 
@@ -10,6 +11,7 @@ const Carousel = ({
   className = ""
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const navigate = useNavigate(); // <--- untuk pindah halaman
 
   // Ensure we have images
   if (!images || images.length === 0) {
@@ -31,6 +33,10 @@ const Carousel = ({
     setCurrentSlide(index);
   };
 
+  const handleImageClick = (link) => {
+    if (link) navigate(link);
+  };
+
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % images.length);
   };
@@ -42,24 +48,20 @@ const Carousel = ({
   return (
     <div className={`carousel-wrapper ${className}`}>
       <div className="carousel-container">
-        {/* Slides */}
-        <div className="carousel-slides">
-          {images.map((image, index) => (
-            <div 
-              key={index}
-              className={`carousel-item ${index === currentSlide ? 'active' : ''}`}
-            >
-              <img 
-                src={image.src || image} 
-                alt={image.alt || `Slide ${index + 1}`}
-                style={{ height }}
-              />
-            </div>
-          ))}
-        </div>
+        {images.map((image, index) => (
+          <div 
+            key={index}
+            className={`carousel-item ${index === currentSlide ? 'active' : ''}`}
+          >
+            <img 
+              src={image.src || image} 
+              alt={image.alt || `Slide ${index + 1}`}
+              style={{ height }}
+            />
+          </div>
+        ))}
       </div>
       
-      {/* Indicators */}
       {showIndicators && images.length > 1 && (
         <div className="carousel-indicators">
           {images.map((_, index) => (

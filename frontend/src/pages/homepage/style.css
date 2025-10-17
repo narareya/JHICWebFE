@@ -13,7 +13,7 @@
     url('/images/galeri/fasilitas/Grapos.jpeg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll; /* <--- ubah dari fixed ke scroll */
   padding: 80px 0;
   color: white;
   position: relative;
@@ -21,6 +21,7 @@
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
 }
+
 
 .hero-content {
   max-width: 1200px;
