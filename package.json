@@ -16,5 +16,8 @@
     "url": "https://github.com/narareya/JHICWebFE/issues"
   },
   "homepage": "https://github.com/narareya/JHICWebFE#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "vite": "^7.1.10"
+  }
 }
