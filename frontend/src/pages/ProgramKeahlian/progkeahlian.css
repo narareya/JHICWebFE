@@ -6,7 +6,13 @@
   padding: 0;
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
+/* ===== HERO SECTION ===== */
 .hero {
   position: relative;
   z-index: 0;
@@ -21,18 +27,39 @@
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
-  transform: translateY(-40px);
 }
-
 
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 0;
 }
 
+.hero-overlay {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.6));
+}
 
 .hero h1 {
   position: relative;
@@ -45,81 +72,169 @@
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-
-.hero img {
-  position: relative;
-  z-index: 1;
-  margin-top: 1.5rem;
-  width: 180px;
-  height: auto;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.6));
-  transition: transform 0.3s ease;
+/* ===== VISI MISI SECTION ===== */
+.visi-misi-section {
+  background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+  color: #333;
+  padding: 4rem 0;
 }
 
-.hero img:hover {
-  transform: scale(1.05);
-}
-
-
-.content {
-  background: linear-gradient(to bottom, #4e1f07, #2d1105);
-  color: white;
-  padding: 4rem 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.visi-misi-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  margin-top: -40px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.content div {
-  max-width: 400px;
+.visi, .misi {
+  text-align: center;
 }
 
-
-.content h2 {
+.visi h2, .misi h2 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
-  border-bottom: 3px solid #e8aa25;
+  border-bottom: 3px solid #007bff;
   display: inline-block;
   padding-bottom: 0.3rem;
-  color: #fdd76e;
+  color: #007bff;
 }
 
-
-.content p {
+.visi p, .misi p {
   font-size: 1rem;
   line-height: 1.8;
-  color: #f5f5f5;
+  color: #555;
   text-align: justify;
   letter-spacing: 0.3px;
 }
 
-
-.content p span {
-  color: #ffd54f;
-  font-weight: 500;
+/* ===== CONTENT SECTION ===== */
+.content-section {
+  background: transparent;
+  padding: 4rem 0;
 }
 
-
-.scroll-reveal {
-  margin: 20px 0;
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
 }
 
-.scroll-reveal-text {
-  font-size: clamp(1.6rem, 4vw, 3rem);
-  line-height: 1.5;
-  font-weight: 600;
+.carousel-section {
+  display: flex;
+  justify-content: center;
 }
 
-.word {
+.learning-section {
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+  min-height: 400px;
+}
+
+.learning-section h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2d1105;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border-bottom: 3px solid #e8aa25;
   display: inline-block;
+  width: 100%;
+  padding-bottom: 0.5rem;
+}
+
+.learning-list {
+  list-style: none;
+  padding: 0;
+}
+
+.learning-list li {
+  background: #f8f9fa;
+  margin-bottom: 0.8rem;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #e8aa25;
+  font-size: 1rem;
+  color: #333;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.learning-list li:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 15px rgba(232, 170, 37, 0.2);
+}
+
+/* ===== FUTURE JOB SECTION ===== */
+.future-job-section {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 4rem 0;
+}
+
+.future-job-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #1f2937;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.job-grid, .career-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.job-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid #e8aa25;
+}
+
+.job-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.job-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.job-card h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+/* ===== TIMELINE SECTION ===== */
+.timeline-section-wrapper {
+  background: linear-gradient(to bottom, #374151, #1f2937);
+  color: white;
+  padding: 4rem 0;
+}
+
+.timeline-section-wrapper .timeline-title {
+  color: #fdd76e;
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .hero {
-    height: 80vh;
+    height: 70vh;
     padding-top: 60px;
   }
 
@@ -127,22 +242,66 @@
     font-size: 2.2rem;
   }
 
-  .hero img {
-    width: 140px;
+  .hero-logo {
+    width: 100px;
+    height: 100px;
   }
 
-  .content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .visi-misi-content {
+    grid-template-columns: 1fr;
     gap: 2rem;
   }
 
-  .content h2 {
+  .visi h2, .misi h2 {
     font-size: 1.5rem;
   }
 
-  .content p {
+  .visi p, .misi p {
     font-size: 0.95rem;
   }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .learning-section {
+    padding: 1rem;
+  }
+
+  .learning-section h3 {
+    font-size: 1.5rem;
+  }
+
+  .future-job-section h2 {
+    font-size: 2rem;
+  }
+
+  .career-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 400px;
+  }
+}
+
+/* ===== CAREER GRID ===== */
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== FACILITY CAROUSEL ===== */
+.facility-carousel .carousel-indicators {
+  bottom: -30px !important;
+  position: absolute !important;
+}
+
+.facility-carousel {
+  position: relative;
+  margin-bottom: 40px;
 }

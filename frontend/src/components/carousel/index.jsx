@@ -13,6 +13,12 @@ const Carousel = ({
   const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate(); // <--- untuk pindah halaman
 
+  // Ensure we have images
+  if (!images || images.length === 0) {
+    return <div className="carousel-empty">No images to display</div>;
+  }
+
+  // Auto slide effect
   useEffect(() => {
     if (!autoSlide || images.length <= 1) return;
 
@@ -31,19 +37,21 @@ const Carousel = ({
     if (link) navigate(link);
   };
 
-  if (!images || images.length === 0) {
-    return <div className="carousel-empty">No images to display</div>;
-  }
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % images.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + images.length) % images.length);
+  };
 
   return (
-    <section className={`carousel-section ${className}`}>
+    <div className={`carousel-wrapper ${className}`}>
       <div className="carousel-container">
         {images.map((image, index) => (
           <div 
             key={index}
             className={`carousel-item ${index === currentSlide ? 'active' : ''}`}
-            onClick={() => handleImageClick(image.link)} // <--- klik pindah halaman
-            style={{ cursor: image.link ? 'pointer' : 'default' }} // ubah cursor
           >
             <img 
               src={image.src || image} 
@@ -65,7 +73,7 @@ const Carousel = ({
           ))}
         </div>
       )}
-    </section>
+    </div>
   );
 };
 
