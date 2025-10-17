@@ -14,6 +14,7 @@ import PPDBPage from './pages/ppdb/ppdb';
 import PKLPage from './pages/pkl';
 import PendaftaranPage from "./pages/ppdb/pendaftaran/pendaftaran";
 import LoginPage from './pages/ppdb/login/login';
+import FormPage from './pages/form';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/ppdb" element={<PPDBPage/>} />
           <Route path="/pkl" element={<PKLPage />} />
           <Route path="/blog" element={<BlogPage/>} />
+          <Route path="/form" element={<FormPage />} />
           <Route path="/program-keahlian" element={<Navigate to="/program-keahlian/Animasi%203D" replace />} />
           <Route path="/program-keahlian/:namaJurusan" element={<ProgramKeahlianPage/>}/>
           <Route path="/ppdb/pendaftaran/pendaftaran" element={<PendaftaranPage />} />
