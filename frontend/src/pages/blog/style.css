@@ -6,26 +6,26 @@
 }
 
 .featured-container {
-    max-width: 1000px;
-    margin: 0 auto 2.5rem auto;
+    max-width: 1200px;
+    margin: 0 auto 4rem auto;
 }
 
 .blog-card.featured {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 1.5rem;
-    padding: 1.2rem;
+    gap: 2rem;
+    padding: 2rem;
     background-color: #ffffff;
-
     border-radius: 20px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(234, 179, 8, 0.1);
 }
 
 .blog-card.featured:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
 }
 
 .blog-card.featured .featured-image {
@@ -54,10 +54,10 @@
 }
 
 .blog-content.featured-content p {
-    color: #374151;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
+    color: #6b7280;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
 }
 
 .blog-date {
@@ -81,11 +81,17 @@
 }
 
 .blog-grid {
-    max-width: 1000px;
-    margin: 0 auto;
     display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
 }
 
 .blog-card {
@@ -94,43 +100,54 @@
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    height: fit-content;
 }
 
 .blog-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .blog-card img {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover img {
+    transform: scale(1.05);
 }
 
 .blog-content {
-    padding: 1.2rem 1.5rem;
+    padding: 1.5rem;
 }
 
 .blog-content h3 {
-    color: #d97706;
+    color: #1f2937;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
     cursor: pointer;
     transition: color 0.2s ease;
 }
 
 .blog-content h3:hover {
-    color: #f59e0b;
+    color: #eab308;
 }
 
 .blog-content p {
     color: #374151;
     font-size: 0.9rem;
-    line-height: 1.4;
+    line-height: 1.6;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .blog-card .blog-date {
@@ -142,76 +159,28 @@
     margin-top: 0.8rem;
 }
 
-.carousel-container {
-    max-width: 1000px;
-     margin: 2rem auto 4rem auto; /* Tambah jarak bawah 3rem */
-
+.news-section {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.carousel-title {
+.section-title {
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 2rem;
     font-weight: 700;
-    color: #eab308;
-    margin-bottom: 1rem;
+    color: #1f2937;
+    margin-bottom: 3rem;
+    position: relative;
 }
 
-.carousel-scroll {
-    display: flex;
-    gap: 1rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding: 1rem 0.5rem;
-    scrollbar-width: thin;
-}
-
-.carousel-scroll::-webkit-scrollbar {
-    height: 8px;
-}
-
-.carousel-scroll::-webkit-scrollbar-thumb {
-    background: #facc15;
-    border-radius: 10px;
-}
-
-.carousel-card {
-    flex: 0 0 320px;
-    height: 380px;
-    background: #1f1f1f;
-    border-radius: 12px;
-    overflow: hidden;
-    scroll-snap-align: start;
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.carousel-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.carousel-card-content {
-    flex: 1;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.carousel-card:hover {
-    transform: translateY(-5px);
-}
-
-
-@media (max-width: 768px) {
-    .carousel-card {
-        flex: 0 0 260px;
-        height: 340px;
-    }
-
-    .carousel-card img {
-        height: 160px;
-    }
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #eab308, #facc15);
+    border-radius: 2px;
 }

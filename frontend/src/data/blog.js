@@ -1,7 +1,7 @@
 export const blogs = [
   {
     id: 1,
-    image: "/src/images/halalBihalal1.jpg",
+    image: "/images/galeri/aktifitas/Halbil.jpeg",
     title: "Halal Bihalal Pererat Silaturahmi Ciptakan Harmoni di SMK Raden Umar Said",
     description:
       "Kudus – Rabu, 9 April 2025, SMK Raden Umar Said Kudus mengadakan kegiatan halal bihalal sebagai bentuk rasa syukur dan...",
