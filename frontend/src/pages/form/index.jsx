@@ -1,17 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { User, School, Phone, MapPin, CreditCard, Users } from 'lucide-react';
 import './style.css';
+import { useNavigate } from 'react-router-dom';
+import API from '../../api';
+import Swal from 'sweetalert2';
 
 const FormPage = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    account_id: '',
     nama_siswa: '',
     jurusan: '',
-    nama_wali: '',
-    nohp_wali: '',
+    nama_walmur: '',
+    nohp_walmur: '',
     nik: '',
     alamat: ''
   });
+
+  useEffect(() => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    navigate("/ppdb/login/login");
+  } else {
+    // Ambil data user dari backend
+    API.get("/profile", {
+      headers: { Authorization: `Bearer ${token}` }
+    }).then(res => {
+      setFormData(prev => ({
+        ...prev,
+        account_id: res.data.account_id || prev.account_id
+      }));
+    });
+    
+  }
+}, []);
+
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -45,11 +67,6 @@ const FormPage = () => {
   const validateForm = () => {
     const newErrors = {};
 
-    // Validasi Account ID
-    if (!formData.account_id.trim()) {
-      newErrors.account_id = 'Account ID wajib diisi';
-    }
-
     // Validasi Nama Siswa
     if (!formData.nama_siswa.trim()) {
       newErrors.nama_siswa = 'Nama siswa wajib diisi';
@@ -63,17 +80,17 @@ const FormPage = () => {
     }
 
     // Validasi Nama Wali
-    if (!formData.nama_wali.trim()) {
-      newErrors.nama_wali = 'Nama wali wajib diisi';
-    } else if (formData.nama_wali.trim().length < 2) {
-      newErrors.nama_wali = 'Nama wali minimal 2 karakter';
+    if (!formData.nama_walmur.trim()) {
+      newErrors.nama_walmur = 'Nama wali wajib diisi';
+    } else if (formData.nama_walmur.trim().length < 2) {
+      newErrors.nama_walmur = 'Nama wali minimal 2 karakter';
     }
 
     // Validasi No HP Wali
-    if (!formData.nohp_wali.trim()) {
-      newErrors.nohp_wali = 'No HP wali wajib diisi';
-    } else if (!/^(\+62|62|0)8[1-9][0-9]{6,10}$/.test(formData.nohp_wali)) {
-      newErrors.nohp_wali = 'Format no HP tidak valid (contoh: 08123456789)';
+    if (!formData.nohp_walmur.trim()) {
+      newErrors.nohp_walmur = 'No HP wali wajib diisi';
+    } else if (!/^(\+62|62|0)8[1-9][0-9]{6,10}$/.test(formData.nohp_walmur)) {
+      newErrors.nohp_walmur = 'Format no HP tidak valid (contoh: 08123456789)';
     }
 
     // Validasi NIK
@@ -96,40 +113,53 @@ const FormPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+  
     if (!validateForm()) {
       return;
     }
-
+  
     setIsSubmitting(true);
-    
+  
     try {
-      // Simulasi API call
-      console.log('Form Data Submitted:', formData);
-      
-      // Simulate API delay
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      alert('Data berhasil disimpan!');
-      
-      // Reset form
+      // POST data pendaftaran
+      const res = await API.post("/registers", formData, {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+      });
+  
+      // Setelah berhasil daftar, update status menjadi "terdaftar"
+      await API.patch(`/registers/${res.data.register.id}/status`, 
+        { status: 'terdaftar' }, 
+        { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+      );
+  
+      Swal.fire({
+        icon: 'success',
+        title: 'Berhasil!',
+        text: 'Data pendaftaran tersimpan dan status akun menjadi terdaftar.'
+      });
+  
       setFormData({
-        account_id: '',
         nama_siswa: '',
         jurusan: '',
-        nama_wali: '',
-        nohp_wali: '',
+        nama_walmur: '',
+        nohp_walmur: '',
         nik: '',
         alamat: ''
       });
-      
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('Terjadi kesalahan saat menyimpan data');
+  
+      navigate('/ppdb/profile'); // opsional, redirect ke halaman profil
+  
+    } catch (err) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Gagal',
+        text: err.response?.data?.message || 'Terjadi kesalahan'
+      });
     } finally {
       setIsSubmitting(false);
     }
   };
+  
 
   return (
     <div className="form-page">
@@ -140,24 +170,6 @@ const FormPage = () => {
         </div>
 
         <form className="student-form" onSubmit={handleSubmit}>
-          {/* Account ID */}
-          <div className="form-group">
-            <label htmlFor="account_id" className="form-label">
-              <User size={18} />
-              Account ID
-            </label>
-            <input
-              type="text"
-              id="account_id"
-              name="account_id"
-              value={formData.account_id}
-              onChange={handleInputChange}
-              className={`form-input ${errors.account_id ? 'error' : ''}`}
-              placeholder="Masukkan Account ID"
-            />
-            {errors.account_id && <span className="error-message">{errors.account_id}</span>}
-          </div>
-
           {/* Nama Siswa */}
           <div className="form-group">
             <label htmlFor="nama_siswa" className="form-label">
@@ -200,38 +212,38 @@ const FormPage = () => {
 
           {/* Nama Wali */}
           <div className="form-group">
-            <label htmlFor="nama_wali" className="form-label">
+            <label htmlFor="nama_walmur" className="form-label">
               <Users size={18} />
               Nama Wali
             </label>
             <input
               type="text"
-              id="nama_wali"
-              name="nama_wali"
-              value={formData.nama_wali}
+              id="nama_walmur"
+              name="nama_walmur"
+              value={formData.nama_walmur}
               onChange={handleInputChange}
-              className={`form-input ${errors.nama_wali ? 'error' : ''}`}
+              className={`form-input ${errors.nama_walmur ? 'error' : ''}`}
               placeholder="Masukkan nama wali/orang tua"
             />
-            {errors.nama_wali && <span className="error-message">{errors.nama_wali}</span>}
+            {errors.nama_walmur && <span className="error-message">{errors.nama_walmur}</span>}
           </div>
 
           {/* No HP Wali */}
           <div className="form-group">
-            <label htmlFor="nohp_wali" className="form-label">
+            <label htmlFor="nohp_walmur" className="form-label">
               <Phone size={18} />
               No HP Wali
             </label>
             <input
               type="tel"
-              id="nohp_wali"
-              name="nohp_wali"
-              value={formData.nohp_wali}
+              id="nohp_walmur"
+              name="nohp_walmur"
+              value={formData.nohp_walmur}
               onChange={handleInputChange}
-              className={`form-input ${errors.nohp_wali ? 'error' : ''}`}
+              className={`form-input ${errors.nohp_walmur ? 'error' : ''}`}
               placeholder="08123456789"
             />
-            {errors.nohp_wali && <span className="error-message">{errors.nohp_wali}</span>}
+            {errors.nohp_walmur && <span className="error-message">{errors.nohp_walmur}</span>}
           </div>
 
           {/* NIK */}

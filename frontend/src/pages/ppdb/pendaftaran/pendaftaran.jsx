@@ -5,6 +5,7 @@ import PasswordInput from "../../../components/passwordInput";
 import Button from "../../../components/button";
 import { FaUserAlt, FaEnvelope } from "react-icons/fa";
 import "./style.css";
+import API from "../../../api";
 import Swal from "sweetalert2";
 
 const PendaftaranPage = () => {
@@ -34,23 +35,32 @@ const PendaftaranPage = () => {
     return Object.keys(err).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
 
-    // contoh pengiriman data
-    console.log("Data dikirim:", form);
+    try {
+      await API.post("/register", {
+        username: form.name,
+        email: form.email,
+        password: form.password,
+        password_confirmation: form.confirmPassword,
+      });
 
-    // tampilkan pop-up berhasil daftar
-    Swal.fire({
+      Swal.fire({
         title: "Berhasil!",
         text: "Akun kamu sudah berhasil dibuat.",
         icon: "success",
-        confirmButtonText: "OK"
-    }).then(() => {
-        // setelah klik OK, pindah ke halaman home
-        navigate("/");
-    });
+        confirmButtonText: "OK",
+      }).then(() => navigate("/ppdb/login/login"));
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Gagal Daftar",
+        text: error.response?.data?.message || "Cek input kamu",
+        confirmButtonColor: "#1e3560",
+      });
+    }
 };
 
   return (

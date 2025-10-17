@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
+import API from "../../../api.js";
 import Swal from "sweetalert2";
 
 const LoginPage = () => {
@@ -12,14 +13,18 @@ const LoginPage = () => {
     password: "",
   });
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) navigate("/form"); // kalau sudah login langsung ke FormPage
+  }, []);
+
   const togglePassword = () => setShowPassword(!showPassword);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Login Data:", formData);
 
@@ -35,16 +40,26 @@ const LoginPage = () => {
     }
 
     // Jika berhasil login
-    Swal.fire({
-      icon: "success",
-      title: "Login Berhasil!",
-      text: "Selamat datang kembali 👋",
-      confirmButtonColor: "#1e3560",
-      timer: 1800,
-      showConfirmButton: false,
-    }).then(() => {
-      navigate("/");
-    });
+    try {
+      const response = await API.post("/login", formData);
+      localStorage.setItem("token", response.data.token);
+
+      Swal.fire({
+        icon: "success",
+        title: "Login Berhasil!",
+        text: "Selamat datang kembali 👋",
+        confirmButtonColor: "#1e3560",
+        timer: 1800,
+        showConfirmButton: false,
+      }).then(() => navigate("/form"));
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Login Gagal",
+        text: error.response?.data?.message || "Cek email & password",
+        confirmButtonColor: "#1e3560",
+      });
+    }
   };
 
   return (

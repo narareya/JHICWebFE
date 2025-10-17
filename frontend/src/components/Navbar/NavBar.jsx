@@ -12,10 +12,11 @@ function NavBar() {
         "PKL": "/pkl",
         "Blog": "/blog",
         "Galeri": "/gallery",
-        "Program Keahlian": "/program-keahlian"
+        "Program Keahlian": "/program-keahlian",
+        "Profile": "/profile"
     };
 
-    const navs = ["Home", "Informasi", "PPDB", "PKL", "Blog", "Galeri", "Program Keahlian"];
+    const navs = ["Home", "Informasi", "PPDB", "PKL", "Blog", "Galeri", "Program Keahlian", "Profile"];
     const navigate = useNavigate();
     const location = useLocation();
     const [active, setActive] = useState("Home");
