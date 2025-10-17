@@ -8,6 +8,10 @@ import { useNavigate } from 'react-router-dom';
 const Homepage = () => {
   const navigate = useNavigate();
 
+  const handleCarouselClick = () => {
+    navigate('/blog');
+  };
+
   return (
     <div className="homepage">
       {/* Hero Section */}
@@ -61,7 +65,8 @@ const Homepage = () => {
         autoSlide={true}
         interval={4000}
         showIndicators={true}
-        height="400px"
+        height="250px"
+        onImageClick={handleCarouselClick}
       />
 
       {/* Partnership Section */}
