@@ -13,8 +13,12 @@ const Carousel = ({
   const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate(); // <--- untuk pindah halaman
 
+  // Debug: log images
+  console.log('Carousel images:', images);
+
   // Ensure we have images
   if (!images || images.length === 0) {
+    console.log('No images found for carousel');
     return <div className="carousel-empty">No images to display</div>;
   }
 
@@ -56,6 +60,7 @@ const Carousel = ({
             <img 
               src={image.src || image} 
               alt={image.alt || `Slide ${index + 1}`}
+              onClick= {() => navigate("/blog")}
               style={{ height }}
             />
           </div>
@@ -64,7 +69,7 @@ const Carousel = ({
       
       {showIndicators && images.length > 1 && (
         <div className="carousel-indicators">
-          {images.map((_, index) => (
+          {images .map((_, index) => (
             <span 
               key={index}
               className={`indicator ${index === currentSlide ? 'active' : ''}`}

@@ -56,61 +56,69 @@ const PendaftaranPage = () => {
   return (
     <div className="reg-page">
       <div className="reg-card">
-        <div className="reg-header">Daftar</div>
+        <div className="reg-header">
+          <h2>Daftar</h2>
+        </div>
         <form className="reg-body" onSubmit={handleSubmit} noValidate>
-          <FormInput
-            label="Nama Lengkap"
-            name="name"
-            value={form.name}
-            onChange={handleChange}
-            placeholder="Nama Lengkap"
-            icon={<FaUserAlt />}
-          />
-          {errors.name && <p className="error">{errors.name}</p>}
-
-          <FormInput
-            label="Email"
-            name="email"
-            value={form.email}
-            onChange={handleChange}
-            placeholder="you@example.com"
-            icon={<FaEnvelope />}
-            type="email"
-          />
-          {errors.email && <p className="error">{errors.email}</p>}
-
-          <PasswordInput
-            label="Password"
-            name="password"
-            value={form.password}
-            onChange={handleChange}
-            placeholder="Password"
-          />
-          {errors.password && <p className="error">{errors.password}</p>}
-
-          <PasswordInput
-            label="Konfirmasi Password"
-            name="confirmPassword"
-            value={form.confirmPassword}
-            onChange={handleChange}
-            placeholder="Konfirmasi Password"
-          />
-          {errors.confirmPassword && (
-            <p className="error">{errors.confirmPassword}</p>
-          )}
-
-          <div style={{ textAlign: "center", marginTop: 18 }}>
-            <Button 
-            text="DAFTAR"
-            type="submit"
-            variant="primary"
-            fullWidth
+          <div className="form-row">
+            <FormInput
+              label="Nama Lengkap"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              placeholder="Nama Lengkap"
+              icon={<FaUserAlt />}
             />
+            {errors.name && <p className="error">{errors.name}</p>}
           </div>
 
-          <p className="login-link">
-            Sudah punya akun? <a href="/ppdb/login/login">Masuk</a>
-          </p>
+          <div className="form-row">
+            <FormInput
+              label="Email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              placeholder="you@example.com"
+              icon={<FaEnvelope />}
+              type="email"
+            />
+            {errors.email && <p className="error">{errors.email}</p>}
+          </div>
+
+          <div className="form-row">
+            <PasswordInput
+              label="Password"
+              name="password"
+              value={form.password}
+              onChange={handleChange}
+              placeholder="Password"
+            />
+            {errors.password && <p className="error">{errors.password}</p>}
+          </div>
+
+          <div className="form-row">
+            <PasswordInput
+              label="Konfirmasi Password"
+              name="confirmPassword"
+              value={form.confirmPassword}
+              onChange={handleChange}
+              placeholder="Konfirmasi Password"
+            />
+            {errors.confirmPassword && (
+              <p className="error">{errors.confirmPassword}</p>
+            )}
+          </div>
+
+          <div className="submit-section">
+            <Button text="DAFTAR" variant="primary" type="submit" />
+          </div>
+
+          <div className="register-link">
+            Sudah punya akun?
+            <a onClick={() => navigate("/ppdb/login/login")}>
+              Masuk
+            </a>
+          </div>
         </form>
       </div>
     </div>
