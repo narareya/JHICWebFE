@@ -50,7 +50,9 @@ const LoginPage = () => {
   return (
     <div className="login-page">
       <div className="login-card">
-        <div className="login-header">Masuk</div>
+        <div className="login-header">
+          <h2>Masuk</h2>
+        </div>
 
         <div className="login-body">
           <form onSubmit={handleSubmit}>

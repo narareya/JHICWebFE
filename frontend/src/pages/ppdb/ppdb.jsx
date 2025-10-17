@@ -11,10 +11,10 @@ const PPDBPage =()=>{
 
     return (
     <div className="ppdb-container">
-      {/* <header className="ppdb-header">
-        <h1>PPDB</h1>
+      <header className="ppdb-header">
+        <h1>PPDB 2025/2026</h1>
         <p>Penerimaan Peserta Didik Baru<br />SMK RADEN UMAR SAID</p>
-      </header> */}
+      </header>
 
       <div className="ppdb-guide">
         <img src={panduanPPDB} alt="Panduan PPDB SMK RUS" />
@@ -23,7 +23,9 @@ const PPDBPage =()=>{
       <CardPpdb title="Syarat Pendaftaran" items={syaratPendaftaran} />
       <CardPpdb title="Berkas Pendaftaran" items={berkasPendaftaran} />
 
-      <div style={{ textAlign: "center", marginTop: "30px" }}>
+      <div className="ppdb-action">
+        <h3 className="ppdb-action-title">Siap untuk bergabung?</h3>
+        <p className="ppdb-action-subtitle">Daftarkan diri Anda sekarang dan mulai perjalanan pendidikan yang menakjubkan</p>
         <Button 
           text="Daftar Sekarang"
           variant="primary"
