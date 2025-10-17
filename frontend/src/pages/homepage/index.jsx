@@ -6,10 +6,12 @@ import './style.css';
 import { useNavigate } from 'react-router-dom';
 
 const Homepage = () => {
+  const navigate = useNavigate();
+  
   const carouselImages = [
-    { src: '/images/dalamkota.jpeg', alt: 'Kegiatan Dalam Kota' },
-    { src: '/images/luarkota.jpeg', alt: 'Kegiatan Luar Kota' },
-    { src: '/images/kaldik.jpeg', alt: 'Kalender Pendidikan' }
+    { src: '../images/galeri/aktifitas/kartini.jpeg', alt: 'Kegiatan Dalam Kota', link: '/blog' },
+    { src: '../images/galeri/aktifitas/isramiraj.jpeg', alt: 'Kegiatan Luar Kota', link: '/blog' },
+    { src: '../images/galeri/aktifitas/teater.jpeg', alt: 'Kalender Pendidikan', link: '/blog' }
   ];
 
   const partners = [
