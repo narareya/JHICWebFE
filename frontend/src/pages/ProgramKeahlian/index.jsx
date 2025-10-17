@@ -83,6 +83,7 @@ const ProgramKeahlianPage = () => {
             <section className="future-job-section">
                 <div className="container">
                     <h2>Prospek Karir</h2>
+                    <p>Jelajahi berbagai peluang karir menarik dengan gaji kompetitif dan pengembangan skill yang berkelanjutan di industri yang berkembang pesat</p>
                     <div className="career-grid">
                         {data.detailKarir && data.detailKarir.length > 0 ? data.detailKarir.map((career, index) => (
                             <CareerCard 

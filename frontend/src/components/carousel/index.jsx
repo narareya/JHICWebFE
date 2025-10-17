@@ -5,10 +5,11 @@ import { useNavigate } from 'react-router-dom'; // <--- Tambah ini
 const Carousel = ({ 
   images, 
   autoSlide = true, 
-  interval = 4000, 
+  interval = 200, 
   showIndicators = true,
-  height = "400px",
-  className = ""
+  height = "200px",
+  className = "",
+  onImageClick = null // <--- Tambah prop untuk handle click
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const navigate = useNavigate(); // <--- untuk pindah halaman
@@ -37,8 +38,10 @@ const Carousel = ({
     setCurrentSlide(index);
   };
 
-  const handleImageClick = (link) => {
-    if (link) navigate(link);
+  const handleImageClick = () => {
+    if (onImageClick) {
+      onImageClick();
+    }
   };
 
   const nextSlide = () => {
@@ -56,6 +59,8 @@ const Carousel = ({
           <div 
             key={index}
             className={`carousel-item ${index === currentSlide ? 'active' : ''}`}
+            onClick={handleImageClick}
+            style={{ cursor: onImageClick ? 'pointer' : 'default' }}
           >
             <img 
               src={image.src || image} 
@@ -63,6 +68,14 @@ const Carousel = ({
               onClick= {() => navigate("/blog")}
               style={{ height }}
             />
+            {onImageClick && (
+              <div className="carousel-overlay">
+                <div className="carousel-overlay-content">
+                  <i className="fas fa-newspaper"></i>
+                  <span>Klik untuk lihat blog</span>
+                </div>
+              </div>
+            )}
           </div>
         ))}
       </div>

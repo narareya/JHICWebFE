@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background: white;
+  background: #F7F7F7;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
@@ -49,7 +49,7 @@
 
 .partner-logo:hover img {
   filter: grayscale(0%);
-  transform: scale(1.1);
+  transform: scale(1.5);
 }
 
 .partner-name {

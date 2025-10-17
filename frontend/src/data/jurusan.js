@@ -51,25 +51,19 @@ const jurusan = {
       {
         title: 'Motion Graphics Designer',
         details: [
-          { label: 'Job Title', value: 'Menggabungkan elemen visual, teks, dan gerak untuk video promosi atau iklan.' }
+          { label: 'Job Title', value: 'After Effects, Cinema 4D, Typography, Video Editing' }
         ]
       },
       {
         title: 'Ilustrator Digital',
         details: [
-          { label: 'Job Title', value: 'Menghasilkan karya ilustrasi untuk media digital, buku, atau produk visual.' }
+          { label: 'Job Title', value: 'Digital Painting, Photoshop, Procreate, Color Theory' }
         ]
       },
       {
         title: 'Comic Artist',
         details: [
-          { label: 'Job Title', value: 'Membuat web comic atau komik cetak lengkap dengan cerita dan ilustrasi.' }
-        ]
-      },
-      {
-        title: 'Scriptwriter',
-        details: [
-          { label: 'Job Title', value: 'Menulis naskah cerita untuk animasi, video pendek, atau komik.' }
+          { label: 'Job Title', value: 'Sequential Art, Storytelling, Digital Drawing, Panel Layout' }
         ]
       }
     ],
@@ -117,37 +111,31 @@ const jurusan = {
       {
         title: '3D Animator',
         details: [
-          { label: 'Job Title', value: 'Membuat animasi 3D untuk karakter, objek, dan lingkungan dalam film atau game.' }
+          { label: 'Job Title', value: 'Maya, Blender, 3ds Max, Rigging, Animation' }
         ]
       },
       {
         title: '3D Modeler',
         details: [
-          { label: 'Job Title', value: 'Membuat model 3D untuk karakter, aset game, arsitektur, atau film.' }
+          { label: 'Job Title', value: 'ZBrush, Maya, Blender, Substance Painter' }
         ]
       },
       {
         title: 'VFX Artist',
         details: [
-          { label: 'Job Title', value: 'Menambahkan efek visual seperti ledakan, asap, atau simulasi fisik dalam video.' }
+          { label: 'Job Title', value: 'Houdini, Nuke, After Effects, Particle Systems' }
         ]
       },
       {
         title: 'Lighting Artist',
         details: [
-          { label: 'Job Title', value: 'Mengatur pencahayaan dan bayangan agar hasil render terlihat realistis dan menarik.' }
-        ]
-      },
-      {
-        title: 'Compositor',
-        details: [
-          { label: 'Job Title', value: 'Menggabungkan berbagai elemen visual menjadi satu hasil akhir yang halus dan profesional.' }
+          { label: 'Job Title', value: 'Maya, Arnold, V-Ray, Redshift, HDR Lighting' }
         ]
       },
       {
         title: 'Technical Artist',
         details: [
-          { label: 'Job Title', value: 'Menjembatani kerja antara tim artistik dan teknis dalam pipeline produksi animasi atau game.' }
+          { label: 'Job Title', value: 'Python, MEL, Pipeline Development, Automation' }
         ]
       }
     ],
@@ -195,49 +183,31 @@ const jurusan = {
       {
         title: 'Graphic Designer',
         details: [
-          { label: 'Job Title', value: 'Merancang materi visual seperti poster, brosur, banner, dan konten digital.' }
+          { label: 'Job Title', value: 'Adobe Creative Suite, Typography, Layout Design' }
         ]
       },
       {
         title: 'UI/UX Designer',
         details: [
-          { label: 'Job Title', value: 'Mendesain tampilan dan pengalaman pengguna untuk aplikasi atau website.' }
+          { label: 'Job Title', value: 'Figma, Adobe XD, Sketch, User Research, Prototyping' }
         ]
       },
       {
         title: 'Brand Designer',
         details: [
-          { label: 'Job Title', value: 'Mengembangkan identitas visual perusahaan melalui logo, warna, dan tipografi.' }
+          { label: 'Job Title', value: 'Brand Strategy, Logo Design, Brand Guidelines' }
         ]
       },
       {
         title: 'Social Media Specialist',
         details: [
-          { label: 'Job Title', value: 'Membuat strategi konten visual dan promosi untuk platform sosial media.' }
+          { label: 'Job Title', value: 'Content Creation, Social Media Strategy, Canva' }
         ]
       },
       {
         title: 'Packaging Designer',
         details: [
-          { label: 'Job Title', value: 'Merancang desain kemasan produk yang menarik dan fungsional.' }
-        ]
-      },
-      {
-        title: 'Videographer',
-        details: [
-          { label: 'Job Title', value: 'Membuat dan mengedit video promosi, dokumentasi, atau profil perusahaan.' }
-        ]
-      },
-      {
-        title: 'Photographer',
-        details: [
-          { label: 'Job Title', value: 'Mengambil foto profesional untuk kebutuhan komersial, fashion, atau media sosial.' }
-        ]
-      },
-      {
-        title: 'Content Creator',
-        details: [
-          { label: 'Job Title', value: 'Menciptakan konten digital kreatif untuk promosi, hiburan, atau edukasi.' }
+          { label: 'Job Title', value: 'Structural Design, 3D Visualization, Material Knowledge' }
         ]
       }
     ],
@@ -283,31 +253,31 @@ const jurusan = {
       {
         title: 'Operator Mesin Cetak',
         details: [
-          { label: 'Job Title', value: 'Mengoperasikan dan merawat mesin cetak offset maupun digital untuk produksi massal.' }
+          { label: 'Job Title', value: 'Offset Printing, Digital Printing, Color Management' }
         ]
       },
       {
         title: 'Desainer Pra-Cetak',
         details: [
-          { label: 'Job Title', value: 'Menyiapkan desain dan layout agar siap untuk proses cetak dengan hasil optimal.' }
+          { label: 'Job Title', value: 'Adobe InDesign, Illustrator, Prepress, Layout Design' }
         ]
       },
       {
         title: 'Quality Control Grafika',
         details: [
-          { label: 'Job Title', value: 'Memastikan hasil cetak sesuai standar warna, resolusi, dan kualitas produksi.' }
+          { label: 'Job Title', value: 'Color Calibration, Print Inspection, Quality Standards' }
         ]
       },
       {
         title: 'Digital Printing Specialist',
         details: [
-          { label: 'Job Title', value: 'Menjalankan mesin digital printing serta memproses cetakan custom atau cepat.' }
+          { label: 'Job Title', value: 'Large Format Printing, Digital Workflow, File Management' }
         ]
       },
       {
         title: 'Teknisi Mesin Cetak',
         details: [
-          { label: 'Job Title', value: 'Merawat dan memperbaiki mesin cetak agar produksi berjalan lancar.' }
+          { label: 'Job Title', value: 'Machine Maintenance, Technical Troubleshooting, Mechanical Repair' }
         ]
       }
     ],
@@ -355,31 +325,31 @@ const jurusan = {
       {
         title: 'Front-End Developer',
         details: [
-          { label: 'Job Title', value: 'Web Developer, Mobile App Developer, Full Stack Developer' }
+          { label: 'Job Title', value: 'React, Vue.js, JavaScript, HTML5, CSS3, TypeScript' }
         ]
       },
       {
         title: 'Back-End Developer',
         details: [
-          { label: 'Job Title', value: 'Software Developer, Technical Lead' }
+          { label: 'Job Title', value: 'Node.js, Python, Java, PHP, MySQL, PostgreSQL' }
         ]
       },
       {
         title: 'Full-Stack Developer',
         details: [
-          { label: 'Job Title', value: 'Full Stack Developer, Web Developer, Mobile Developer' }
+          { label: 'Job Title', value: 'MERN Stack, LAMP Stack, DevOps, Git, Docker' }
         ]
       },
       {
         title: 'Game Developer',
         details: [
-          { label: 'Job Title', value: 'Game Developer, Software Developer' }
+          { label: 'Job Title', value: 'Unity, Unreal Engine, C#, C++, Game Design' }
         ]
       },
       {
-        title: 'IoT Engineer',
+        title: 'Mobile App Developer',
         details: [
-          { label: 'Job Title', value: 'IoT Engineer, Technical Lead' }
+          { label: 'Job Title', value: 'React Native, Flutter, Kotlin, Swift, Android Studio' }
         ]
       }
     ],
