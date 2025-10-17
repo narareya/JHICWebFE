@@ -65,6 +65,7 @@ const Carousel = ({
             <img 
               src={image.src || image} 
               alt={image.alt || `Slide ${index + 1}`}
+              onClick= {() => navigate("/blog")}
               style={{ height }}
             />
             {onImageClick && (
@@ -81,7 +82,7 @@ const Carousel = ({
       
       {showIndicators && images.length > 1 && (
         <div className="carousel-indicators">
-          {images.map((_, index) => (
+          {images .map((_, index) => (
             <span 
               key={index}
               className={`indicator ${index === currentSlide ? 'active' : ''}`}
