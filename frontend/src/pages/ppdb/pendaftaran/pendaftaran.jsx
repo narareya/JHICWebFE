@@ -38,30 +38,74 @@ const PendaftaranPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
-
+  
     try {
+      // buat akun
       await API.post("/register", {
         username: form.name,
         email: form.email,
         password: form.password,
         password_confirmation: form.confirmPassword,
       });
-
+  
+      // login otomatis setelah register
+      const loginRes = await API.post("/login", {
+        email: form.email,
+        password: form.password,
+      });
+  
+      localStorage.setItem("token", loginRes.data.token);
+  
       Swal.fire({
         title: "Berhasil!",
-        text: "Akun kamu sudah berhasil dibuat.",
+        text: "Akun kamu sudah dibuat dan kamu sudah login.",
         icon: "success",
-        confirmButtonText: "OK",
-      }).then(() => navigate("/ppdb/login/login"));
+        confirmButtonText: "Lanjut",
+      }).then(() => navigate("/form"));
+  
     } catch (error) {
+      // tampilkan ke console dulu supaya kita bisa lihat struktur responsnya
+      console.error("Register error:", error);
+  
+      // coba ambil pesan dari berbagai kemungkinan lokasi
+      const res = error.response;
+      let errMsg = "Terjadi kesalahan.";
+  
+      if (res) {
+        // 422 validation errors
+        if (res.status === 422 && res.data?.errors) {
+          // gabungkan pesan validation jadi string
+          const all = Object.values(res.data.errors).flat().join(" ");
+          errMsg = all || "Validasi gagal.";
+        } else if (res.data?.message) {
+          errMsg = res.data.message;
+        } else if (res.data) {
+          // fallback: tampilkan isi response data (stringify safe)
+          try {
+            errMsg = typeof res.data === "string" ? res.data : JSON.stringify(res.data);
+          } catch (e) {
+            errMsg = "Terjadi kesalahan (tidak bisa parse response).";
+          }
+        } else {
+          errMsg = `Server merespons status ${res.status}`;
+        }
+      } else if (error.request) {
+        // request dikirim tapi tidak ada respon (network / CORS / server mati)
+        errMsg = "Tidak mendapat respon dari server. Cek server atau masalah jaringan.";
+      } else {
+        // error di sisi client
+        errMsg = error.message;
+      }
+  
       Swal.fire({
         icon: "error",
-        title: "Gagal Daftar",
-        text: error.response?.data?.message || "Cek input kamu",
+        title: "Gagal",
+        text: errMsg,
         confirmButtonColor: "#1e3560",
       });
     }
-};
+  };
+  
 
   return (
     <div className="reg-page">
@@ -69,7 +113,9 @@ const PendaftaranPage = () => {
         <div className="reg-header">
           <h2>Daftar</h2>
         </div>
+
         <form className="reg-body" onSubmit={handleSubmit} noValidate>
+          {/* Nama */}
           <div className="form-row">
             <FormInput
               label="Nama Lengkap"
@@ -82,6 +128,7 @@ const PendaftaranPage = () => {
             {errors.name && <p className="error">{errors.name}</p>}
           </div>
 
+          {/* Email */}
           <div className="form-row">
             <FormInput
               label="Email"
@@ -95,6 +142,7 @@ const PendaftaranPage = () => {
             {errors.email && <p className="error">{errors.email}</p>}
           </div>
 
+          {/* Password */}
           <div className="form-row">
             <PasswordInput
               label="Password"
@@ -106,6 +154,7 @@ const PendaftaranPage = () => {
             {errors.password && <p className="error">{errors.password}</p>}
           </div>
 
+          {/* Konfirmasi Password */}
           <div className="form-row">
             <PasswordInput
               label="Konfirmasi Password"
@@ -119,15 +168,15 @@ const PendaftaranPage = () => {
             )}
           </div>
 
+          {/* Tombol Submit */}
           <div className="submit-section">
             <Button text="DAFTAR" variant="primary" type="submit" />
           </div>
 
+          {/* Link ke login */}
           <div className="register-link">
-            Sudah punya akun?
-            <a onClick={() => navigate("/ppdb/login/login")}>
-              Masuk
-            </a>
+            Sudah punya akun?{" "}
+            <a onClick={() => navigate("/ppdb/login/login")}>Masuk</a>
           </div>
         </form>
       </div>
