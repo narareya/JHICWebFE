@@ -61,9 +61,9 @@ const ProgramKeahlianPage = () => {
                                     alt: `${namaJurusan} Gallery ${index + 1}`
                                 })) : []}
                                 autoSlide={true}
-                                interval={3000}
+                                interval={4000}
                                 showIndicators={true}
-                                height="250px"
+                                height="300px"
                                 className="facility-carousel"
                             />
                         </div>
