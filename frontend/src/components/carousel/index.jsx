@@ -11,6 +11,12 @@ const Carousel = ({
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // Ensure we have images
+  if (!images || images.length === 0) {
+    return <div className="carousel-empty">No images to display</div>;
+  }
+
+  // Auto slide effect
   useEffect(() => {
     if (!autoSlide || images.length <= 1) return;
 
@@ -25,25 +31,32 @@ const Carousel = ({
     setCurrentSlide(index);
   };
 
-  if (!images || images.length === 0) {
-    return <div className="carousel-empty">No images to display</div>;
-  }
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % images.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + images.length) % images.length);
+  };
 
   return (
-    <section className={`carousel-section ${className}`}>
+    <div className={`carousel-wrapper ${className}`}>
       <div className="carousel-container">
-        {images.map((image, index) => (
-          <div 
-            key={index}
-            className={`carousel-item ${index === currentSlide ? 'active' : ''}`}
-          >
-            <img 
-              src={image.src || image} 
-              alt={image.alt || `Slide ${index + 1}`}
-              style={{ height }}
-            />
-          </div>
-        ))}
+        {/* Slides */}
+        <div className="carousel-slides">
+          {images.map((image, index) => (
+            <div 
+              key={index}
+              className={`carousel-item ${index === currentSlide ? 'active' : ''}`}
+            >
+              <img 
+                src={image.src || image} 
+                alt={image.alt || `Slide ${index + 1}`}
+                style={{ height }}
+              />
+            </div>
+          ))}
+        </div>
       </div>
       
       {/* Indicators */}
@@ -58,7 +71,7 @@ const Carousel = ({
           ))}
         </div>
       )}
-    </section>
+    </div>
   );
 };
 
