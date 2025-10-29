@@ -45,11 +45,17 @@ function NavBar() {
     return (
         <div className="navbar">
             <div className="navbar-header">
-                <img src="/images/logo_smkrus.png" alt="Logo SMK Raden Umar Said" className="nav-logo"/>
-                <div className="nav-logo-text">
-                    <h1>SEKOLAH MENENGAH KEJURUAN</h1>
-                    <h1>RADEN UMAR SAID</h1>
-                    <h1>KUDUS</h1>
+                <div className="nav-logo-section">
+                    <img src="/images/logo_smkrus.png" alt="Logo SMK Raden Umar Said" className="nav-logo"/>
+                    <div className="nav-logo-text">
+                        <h1>SEKOLAH MENENGAH KEJURUAN</h1>
+                        <h1>RADEN UMAR SAID</h1>
+                        <h1>KUDUS</h1>
+                    </div>
+                </div>
+                <div className="jhic-section">
+                    <span className="powered-by">powered by:</span>
+                    <img src="/images/JHIC.png" alt="Logo JHIC" />
                 </div>
             </div>
             
